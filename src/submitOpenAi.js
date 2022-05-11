@@ -3,7 +3,8 @@ import Config from "./Config";
 // Trigger 'loading' state before response and clear after response is received
 // Check if response is 'ok' and throw error if not
 
-const submitOpenAi = async (aiPrompt, setAiResp) => {
+const submitOpenAi = async (event, aiPrompt, setAiPrompt, setAiResp) => {
+  event.preventDefault();
   const data = {
     prompt: aiPrompt,
     temperature: 0.5,
@@ -27,6 +28,7 @@ const submitOpenAi = async (aiPrompt, setAiResp) => {
 
   const respText = await resp.json();
   setAiResp(respText.choices[0].text);
+  setAiPrompt("");
 };
 
 export default submitOpenAi;
