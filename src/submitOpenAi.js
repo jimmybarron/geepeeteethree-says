@@ -3,9 +3,9 @@ import Config from "./Config";
 // Trigger 'loading' state before response and clear after response is received
 // Check if response is 'ok' and throw error if not
 
-const submitOpenAi = async (setAiResp) => {
+const submitOpenAi = async (aiPrompt, setAiResp) => {
   const data = {
-    prompt: "Write a poem about a dog wearing skis",
+    prompt: aiPrompt,
     temperature: 0.5,
     max_tokens: 64,
     top_p: 1.0,
@@ -14,7 +14,7 @@ const submitOpenAi = async (setAiResp) => {
   };
 
   const resp = await fetch(
-    "https://api.openai.com/v1/engines/text-curie-001/completions",
+    "https://api.openai.com/v1/engines/text-ada-001/completions",
     {
       method: "POST",
       headers: {
@@ -25,9 +25,8 @@ const submitOpenAi = async (setAiResp) => {
     }
   );
 
-  const respText = await resp.text();
-  console.log(respText);
-  setAiResp(respText);
+  const respText = await resp.json();
+  setAiResp(respText.choices[0].text);
 };
 
 export default submitOpenAi;
