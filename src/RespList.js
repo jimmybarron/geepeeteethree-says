@@ -1,11 +1,12 @@
 const RespList = ({ aiResp }) => {
+  // Creates list entries
   const newList = aiResp.map((aiCallResp, index) => {
     return (
       <div
         key={index}
         className="aiResp"
         style={{
-          margin: "64px 8px",
+          margin: "24px 8px",
           textAlign: "left",
         }}
       >
@@ -16,7 +17,20 @@ const RespList = ({ aiResp }) => {
       </div>
     );
   });
-  return newList;
+
+  return (
+    <section
+      className="aiRespList"
+      style={{
+        display: "flex",
+        flexDirection: "column-reverse",
+        width: "70vw",
+        margin: "auto auto",
+      }}
+    >
+      {newList}
+    </section>
+  );
 };
 
 export default RespList;

@@ -55,17 +55,8 @@ function App() {
             </Button>
           </form>
         </section>
-        <section
-          className="aiRespList"
-          style={{
-            display: "flex",
-            flexDirection: "column-reverse",
-            width: "70vw",
-            margin: "auto auto",
-          }}
-        >
-          <RespList aiResp={aiResp} />
-        </section>
+
+        <RespList aiResp={aiResp} />
       </main>
     </>
   );
