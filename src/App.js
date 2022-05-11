@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Button from "./Button";
+import submitOpenAi from "./submitOpenAi";
+import "./App.css";
 
 function App() {
+  const [aiResp, setAiResp] = useState();
+  const [aiPrompt, setAiPrompt] = useState();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <label for="aiPrompt">Ask the computer a question:</label>
+        <textarea
+          id="aiPrompt"
+          style={{ width: "70vw", height: "10vh", fontSize: "24px" }}
+          onChange={(event) => {
+            setAiPrompt(event.target.value);
+            console.log(event.nativeEvent.inputType);
+            if (event.nativeEvent.inputType === "insertLineBreak") {
+              submitOpenAi(aiPrompt, setAiResp);
+            }
+          }}
+        />
+        <Button onClick={() => submitOpenAi(aiPrompt, setAiResp)}>
+          Submit to Ai
+        </Button>
+        <h2 className="aiResp">{aiResp}</h2>
+      </form>
     </div>
   );
 }
