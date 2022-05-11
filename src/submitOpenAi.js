@@ -1,9 +1,12 @@
 import Config from "./Config";
 
-// Trigger 'loading' state before response and clear after response is received
-// Check if response is 'ok' and throw error if not
-
-const submitOpenAi = async (event, aiPrompt, setAiPrompt, setAiResp) => {
+const submitOpenAi = async (
+  event,
+  aiPrompt,
+  setAiPrompt,
+  aiResp,
+  setAiResp
+) => {
   event.preventDefault();
   const data = {
     prompt: aiPrompt,
@@ -27,7 +30,12 @@ const submitOpenAi = async (event, aiPrompt, setAiPrompt, setAiResp) => {
   );
 
   const respText = await resp.json();
-  setAiResp(respText.choices[0].text);
+  setAiResp((prevState) => {
+    return [
+      ...prevState,
+      { aiPrompt: aiPrompt, aiResp: respText.choices[0].text },
+    ];
+  });
   setAiPrompt("");
 };
 
