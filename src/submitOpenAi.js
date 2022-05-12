@@ -1,9 +1,11 @@
-import Config from "./Config";
-
-// Trigger 'loading' state before response and clear after response is received
-// Check if response is 'ok' and throw error if not
-
-const submitOpenAi = async (aiPrompt, setAiResp) => {
+const submitOpenAi = async (
+  event,
+  aiPrompt,
+  setAiPrompt,
+  aiResp,
+  setAiResp
+) => {
+  event.preventDefault();
   const data = {
     prompt: aiPrompt,
     temperature: 0.5,
@@ -12,21 +14,26 @@ const submitOpenAi = async (aiPrompt, setAiResp) => {
     frequency_penalty: 0.0,
     presence_penalty: 0.0,
   };
-
   const resp = await fetch(
     "https://api.openai.com/v1/engines/text-ada-001/completions",
     {
       method: "POST",
       headers: {
+        Authorization: `Bearer ${process.env.REACT_APP_OPENAI_APIKEY}`,
         "Content-Type": "application/json",
-        Authorization: `Bearer ${Config.APIKEY}`,
       },
       body: JSON.stringify(data),
     }
   );
 
   const respText = await resp.json();
-  setAiResp(respText.choices[0].text);
+  setAiResp((prevState) => {
+    return [
+      ...prevState,
+      { aiPrompt: aiPrompt, aiResp: respText.choices[0].text },
+    ];
+  });
+  setAiPrompt("");
 };
 
 export default submitOpenAi;

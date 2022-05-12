@@ -1,39 +1,30 @@
 import { useState } from "react";
-import Button from "./Button";
-import submitOpenAi from "./submitOpenAi";
 import "./App.css";
+import RespList from "./RespList";
+import SubmitForm from "./SubmitForm";
+
+// ✅ Trigger 'loading' state before response and clear after response is received
+// ✅ Check if response is 'ok' and throw error if not
 
 function App() {
-  const [aiResp, setAiResp] = useState();
+  const [aiResp, setAiResp] = useState([]);
   const [aiPrompt, setAiPrompt] = useState();
 
   return (
-    <div className="App">
-      <form
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <label for="aiPrompt">Ask the computer a question:</label>
-        <textarea
-          id="aiPrompt"
-          style={{ width: "70vw", height: "10vh", fontSize: "24px" }}
-          onChange={(event) => {
-            setAiPrompt(event.target.value);
-            console.log(event.nativeEvent.inputType);
-            if (event.nativeEvent.inputType === "insertLineBreak") {
-              submitOpenAi(aiPrompt, setAiResp);
-            }
-          }}
+    <>
+      <header>
+        <h1 style={{ textAlign: "center" }}>Open AI</h1>
+      </header>
+      <main id="main" className="App">
+        <SubmitForm
+          aiPrompt={aiPrompt}
+          setAiPrompt={setAiPrompt}
+          aiResp={aiResp}
+          setAiResp={setAiResp}
         />
-        <Button onClick={() => submitOpenAi(aiPrompt, setAiResp)}>
-          Submit to Ai
-        </Button>
-        <h2 className="aiResp">{aiResp}</h2>
-      </form>
-    </div>
+        <RespList aiResp={aiResp} />
+      </main>
+    </>
   );
 }
 
