@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import RespList from "./RespList";
 import SubmitForm from "./SubmitForm";

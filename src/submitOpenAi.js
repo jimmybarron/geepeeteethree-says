@@ -1,5 +1,3 @@
-import Config from "./Config";
-
 const submitOpenAi = async (
   event,
   aiPrompt,
@@ -23,7 +21,7 @@ const submitOpenAi = async (
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${Config.APIKEY}`,
+        Authorization: `Bearer ${process.env.REACT_APP_APIKEY}`,
       },
       body: JSON.stringify(data),
     }
