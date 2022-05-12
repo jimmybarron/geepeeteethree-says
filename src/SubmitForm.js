@@ -1,7 +1,7 @@
 import submitOpenAi from "./submitOpenAi";
 import Button from "./Button";
 
-const SubmitForm = ({ aiPrompt, setAiPrompt, aiResp, setAiResp }) => {
+const SubmitForm = ({ aiEngine, aiPrompt, setAiPrompt, aiResp, setAiResp }) => {
   return (
     <section>
       <form
@@ -24,13 +24,20 @@ const SubmitForm = ({ aiPrompt, setAiPrompt, aiResp, setAiResp }) => {
           }}
           onKeyDown={(event) => {
             if (event.key === "Enter") {
-              submitOpenAi(event, aiPrompt, setAiPrompt, aiResp, setAiResp);
+              submitOpenAi(
+                event,
+                aiEngine,
+                aiPrompt,
+                setAiPrompt,
+                aiResp,
+                setAiResp
+              );
             }
           }}
         ></textarea>
         <Button
           onClick={(event) =>
-            submitOpenAi(event, aiPrompt, setAiPrompt, setAiResp)
+            submitOpenAi(event, aiEngine, aiPrompt, setAiPrompt, setAiResp)
           }
         >
           Submit to Ai

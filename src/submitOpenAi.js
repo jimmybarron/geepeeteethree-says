@@ -1,8 +1,8 @@
 const submitOpenAi = async (
   event,
+  aiEngine,
   aiPrompt,
   setAiPrompt,
-  aiResp,
   setAiResp
 ) => {
   event.preventDefault();
@@ -15,7 +15,7 @@ const submitOpenAi = async (
     presence_penalty: 0.0,
   };
   const resp = await fetch(
-    "https://api.openai.com/v1/engines/text-ada-001/completions",
+    `https://api.openai.com/v1/engines/${aiEngine}/completions`,
     {
       method: "POST",
       headers: {
