@@ -3,6 +3,7 @@ const submitOpenAi = async (
   aiEngine,
   aiPrompt,
   setAiPrompt,
+  aiResp,
   setAiResp
 ) => {
   event.preventDefault();
@@ -30,7 +31,11 @@ const submitOpenAi = async (
   setAiResp((prevState) => {
     return [
       ...prevState,
-      { aiPrompt: aiPrompt, aiResp: respText.choices[0].text },
+      {
+        aiEngine: aiEngine,
+        aiPrompt: aiPrompt,
+        aiResp: respText.choices[0].text,
+      },
     ];
   });
   setAiPrompt("");

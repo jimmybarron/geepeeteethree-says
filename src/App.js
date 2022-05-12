@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import RespList from "./RespList";
 import SubmitForm from "./SubmitForm";
@@ -7,9 +7,13 @@ import SubmitForm from "./SubmitForm";
 // ✅ Check if response is 'ok' and throw error if not
 
 function App() {
-  const [aiEngine, setAiEngine] = useState("text-ada-001");
+  const [aiEngine, setAiEngine] = useState();
   const [aiResp, setAiResp] = useState([]);
   const [aiPrompt, setAiPrompt] = useState();
+
+  useEffect(() => {
+    console.log(aiEngine);
+  }, [aiEngine]);
 
   return (
     <>
@@ -19,6 +23,7 @@ function App() {
       <main id="main" className="App">
         <SubmitForm
           aiEngine={aiEngine}
+          setAiEngine={setAiEngine}
           aiPrompt={aiPrompt}
           setAiPrompt={setAiPrompt}
           aiResp={aiResp}
