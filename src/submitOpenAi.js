@@ -14,14 +14,14 @@ const submitOpenAi = async (
     frequency_penalty: 0.0,
     presence_penalty: 0.0,
   };
-
+  console.log(process.env.REACT_APP_OPENAI_APIKEY);
   const resp = await fetch(
     "https://api.openai.com/v1/engines/text-ada-001/completions",
     {
       method: "POST",
       headers: {
+        Authorization: `Bearer ${process.env.REACT_APP_OPENAI_APIKEY}`,
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.REACT_APP_APIKEY}`,
       },
       body: JSON.stringify(data),
     }
