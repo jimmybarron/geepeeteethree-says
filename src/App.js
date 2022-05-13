@@ -7,7 +7,7 @@ import SubmitForm from "./SubmitForm";
 // ✅ Check if response is 'ok' and throw error if not
 
 function App() {
-  const [aiEngine, setAiEngine] = useState();
+  const [aiEngine, setAiEngine] = useState("text-ada-001");
   const [aiResp, setAiResp] = useState([]);
   const [aiPrompt, setAiPrompt] = useState();
 
