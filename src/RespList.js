@@ -1,6 +1,6 @@
 const RespList = ({ aiResp }) => {
   // Creates list entries
-  const newList = aiResp.map((aiCallResp, index) => {
+  const newList = aiResp.map((element, index) => {
     return (
       <div
         key={index}
@@ -10,10 +10,20 @@ const RespList = ({ aiResp }) => {
           textAlign: "left",
         }}
       >
+        <h1>
+          {element.aiEngine === "text-ada-001"
+            ? "Ada"
+            : element.aiEngine === "text-babbage-001"
+            ? "Babbage"
+            : element.aiEngine === "text-curie-001"
+            ? "Curie"
+            : "DaVinci"}
+          &nbsp;Says:
+        </h1>
         <h3>Prompt</h3>
-        <p>{aiCallResp.aiPrompt}</p>
+        <p>{element.aiPrompt}</p>
         <h3>Response</h3>
-        <p>{aiCallResp.aiResp}</p>
+        <p>{element.aiResp}</p>
       </div>
     );
   });

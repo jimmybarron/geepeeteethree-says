@@ -1,5 +1,6 @@
 const submitOpenAi = async (
   event,
+  aiEngine,
   aiPrompt,
   setAiPrompt,
   aiResp,
@@ -15,7 +16,7 @@ const submitOpenAi = async (
     presence_penalty: 0.0,
   };
   const resp = await fetch(
-    "https://api.openai.com/v1/engines/text-ada-001/completions",
+    `https://api.openai.com/v1/engines/${aiEngine}/completions`,
     {
       method: "POST",
       headers: {
@@ -30,7 +31,11 @@ const submitOpenAi = async (
   setAiResp((prevState) => {
     return [
       ...prevState,
-      { aiPrompt: aiPrompt, aiResp: respText.choices[0].text },
+      {
+        aiEngine: aiEngine,
+        aiPrompt: aiPrompt,
+        aiResp: respText.choices[0].text,
+      },
     ];
   });
   setAiPrompt("");
