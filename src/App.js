@@ -28,6 +28,21 @@ function App() {
         >
           Ask GPT-3
         </h1>
+        <h1
+          style={{
+            backgroundColor: "#000000",
+            color: "#eeeeee",
+            textAlign: "center",
+            position: "absolute",
+            marginLeft: "auto",
+            marginRight: "auto",
+            left: 0,
+            right: 0,
+            top: "140px",
+          }}
+        >
+          ANYTHING
+        </h1>
       </header>
       <main id="main">
         <SubmitForm

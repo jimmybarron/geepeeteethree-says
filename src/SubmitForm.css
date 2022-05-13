@@ -4,6 +4,7 @@
 
 #submitToAi legend {
   opacity: 0;
+  height: 0;
 }
 
 label[for="aiPrompt"] {
@@ -18,6 +19,8 @@ label[for="aiPrompt"] {
 
 .aiEngineSwiper {
   display: flex;
+  width: 100vw;
+  overflow: scroll;
 }
 
 .aiEngine {
@@ -25,6 +28,11 @@ label[for="aiPrompt"] {
   flex-direction: column;
   align-items: center;
   padding: 8px 16px;
+}
+
+.aiEngine label {
+  padding-bottom: 88px;
+  font-size: 32px;
 }
 
 .aiEngine input[type="radio"] {
