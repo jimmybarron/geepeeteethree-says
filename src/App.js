@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./reset.css";
 import "./App.css";
 import RespList from "./RespList";
 import SubmitForm from "./SubmitForm";
@@ -18,9 +19,17 @@ function App() {
   return (
     <>
       <header>
-        <h1 style={{ textAlign: "center" }}>Open AI</h1>
+        <h1
+          style={{
+            backgroundColor: "#000000",
+            color: "#eeeeee",
+            textAlign: "center",
+          }}
+        >
+          Ask GPT-3
+        </h1>
       </header>
-      <main id="main" className="App">
+      <main id="main">
         <SubmitForm
           aiEngine={aiEngine}
           setAiEngine={setAiEngine}

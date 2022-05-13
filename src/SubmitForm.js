@@ -1,3 +1,4 @@
+import "./SubmitForm.css";
 import submitOpenAi from "./submitOpenAi";
 import Button from "./Button";
 
@@ -22,10 +23,61 @@ const SubmitForm = ({
           event.preventDefault();
         }}
       >
-        <label htmlFor="aiPrompt">Ask the computer a question:</label>
+        <fieldset
+          form="submitToAi"
+          onChange={(event) => {
+            setAiEngine(event.target.value);
+          }}
+        >
+          <legend>Select an Ai Engine:</legend>
+          <div className="aiEngineSwiper">
+            <div className="aiEngine">
+              <input
+                type="radio"
+                id="ada"
+                name="aiEngineChoice"
+                value="text-ada-001"
+                defaultChecked
+              />
+              <label for="ada">Ada</label>
+              <div className="adaImg" />
+            </div>
+            <div className="aiEngine">
+              <input
+                type="radio"
+                id="babbage"
+                name="aiEngineChoice"
+                value="text-babbage-001"
+              />
+              <label for="babbage">Babbage</label>
+              <div className="babbageImg" />
+            </div>
+            <div className="aiEngine">
+              <input
+                type="radio"
+                id="curie"
+                name="aiEngineChoice"
+                value="text-curie-001"
+              />
+              <label for="curie">Curie</label>
+              <div className="curieImg" />
+            </div>
+            <div className="aiEngine">
+              <input
+                type="radio"
+                id="davinci"
+                name="aiEngineChoice"
+                value="text-davinci-001"
+              />
+              <label for="davinci">DaVinci</label>
+              <div className="daVinciImg" />
+            </div>
+          </div>
+        </fieldset>
+        <label htmlFor="aiPrompt">Enter a command for GPT-3!</label>
         <textarea
           id="aiPrompt"
-          style={{ width: "70vw", height: "10vh", fontSize: "24px" }}
+          placeholder="You could ask for a joke..."
           value={aiPrompt}
           onChange={(event) => {
             setAiPrompt(event.target.value);
@@ -43,51 +95,7 @@ const SubmitForm = ({
             }
           }}
         ></textarea>
-        <fieldset
-          form="submitToAi"
-          onChange={(event) => {
-            setAiEngine(event.target.value);
-          }}
-        >
-          <legend>Select an Ai Engine:</legend>
-          <div>
-            <input
-              type="radio"
-              id="ada"
-              name="aiEngineChoice"
-              value="text-ada-001"
-              defaultChecked
-            />
-            <label for="ada">Ada</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="babbage"
-              name="aiEngineChoice"
-              value="text-babbage-001"
-            />
-            <label for="babbage">Babbage</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="curie"
-              name="aiEngineChoice"
-              value="text-curie-001"
-            />
-            <label for="curie">Curie</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="davinci"
-              name="aiEngineChoice"
-              value="text-davinci-001"
-            />
-            <label for="davinci">DaVinci</label>
-          </div>
-        </fieldset>
+
         <Button
           onClick={(event) =>
             submitOpenAi(
@@ -100,7 +108,7 @@ const SubmitForm = ({
             )
           }
         >
-          Submit to Ai
+          SUBMIT TO AI
         </Button>
       </form>
     </section>
