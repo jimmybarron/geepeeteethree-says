@@ -21,6 +21,7 @@ label[for="aiPrompt"] {
   display: flex;
   width: 100vw;
   overflow: scroll;
+  padding-top: 16px;
 }
 
 .aiEngine {
@@ -31,7 +32,6 @@ label[for="aiPrompt"] {
 }
 
 .aiEngine label {
-  padding-bottom: 88px;
   font-size: 32px;
 }
 
@@ -39,38 +39,21 @@ label[for="aiPrompt"] {
   opacity: 0;
 }
 
+.aiEngine input[type="radio"]:checked {
+  transform: scale(1.2);
+}
+
 .aiEngineChoice label {
   font-size: 32px;
 }
 
-.adaImg {
+.aiEngineImg {
   width: 100px;
   height: 150px;
   background-image: url("./facePlaceholder.png");
   background-size: 150px 150px;
   background-position: center;
-}
-
-.babbageImg {
-  width: 100px;
-  height: 150px;
-  background-image: url("./facePlaceholder.png");
-  background-size: 150px 150px;
-  background-position: center;
-}
-
-.curieImg {
-  width: 100px;
-  height: 150px;
-  background-image: url("./facePlaceholder.png");
-  background-size: 150px 150px;
-  background-position: center;
-}
-
-.daVinciImg {
-  width: 100px;
-  height: 150px;
-  background-image: url("./facePlaceholder.png");
-  background-size: 150px 150px;
-  background-position: center;
+  background-origin: border-box;
+  padding-top: 40px;
+  margin: auto;
 }

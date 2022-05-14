@@ -32,45 +32,53 @@ const SubmitForm = ({
           <legend>Select an Ai Engine:</legend>
           <div className="aiEngineSwiper">
             <div className="aiEngine">
-              <input
-                type="radio"
-                id="ada"
-                name="aiEngineChoice"
-                value="text-ada-001"
-                defaultChecked
-              />
-              <label for="ada">Ada</label>
-              <div className="adaImg" />
+              <label for="ada">
+                Ada
+                <input
+                  type="radio"
+                  id="ada"
+                  name="aiEngineChoice"
+                  value="text-ada-001"
+                  defaultChecked
+                />
+                <div className="aiEngineImg" />
+              </label>
             </div>
             <div className="aiEngine">
-              <input
-                type="radio"
-                id="babbage"
-                name="aiEngineChoice"
-                value="text-babbage-001"
-              />
-              <label for="babbage">Babbage</label>
-              <div className="babbageImg" />
+              <label for="babbage">
+                Babbage
+                <input
+                  type="radio"
+                  id="babbage"
+                  name="aiEngineChoice"
+                  value="text-babbage-001"
+                />
+                <div className="aiEngineImg" />
+              </label>
             </div>
             <div className="aiEngine">
-              <input
-                type="radio"
-                id="curie"
-                name="aiEngineChoice"
-                value="text-curie-001"
-              />
-              <label for="curie">Curie</label>
-              <div className="curieImg" />
+              <label for="curie">
+                Curie
+                <input
+                  type="radio"
+                  id="curie"
+                  name="aiEngineChoice"
+                  value="text-curie-001"
+                />
+                <div className="aiEngineImg" />
+              </label>
             </div>
             <div className="aiEngine">
-              <input
-                type="radio"
-                id="davinci"
-                name="aiEngineChoice"
-                value="text-davinci-001"
-              />
-              <label for="davinci">DaVinci</label>
-              <div className="daVinciImg" />
+              <label for="davinci">
+                DaVinci
+                <input
+                  type="radio"
+                  id="davinci"
+                  name="aiEngineChoice"
+                  value="text-davinci-001"
+                />
+              </label>
+              <div className="aiEngineImg" />
             </div>
           </div>
         </fieldset>
