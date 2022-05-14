@@ -31,7 +31,20 @@ const SubmitForm = ({
           }}
         >
           <legend>Select an Ai Engine:</legend>
-          <div className="aiEngineSwiper">
+          <motion.div
+            className="aiEngineSwiper"
+            animate={
+              aiEngine === "text-ada-001"
+                ? { left: "910px" }
+                : aiEngine === "text-babbage-001"
+                ? { left: "690px" }
+                : aiEngine === "text-curie-001"
+                ? { left: "470px" }
+                : aiEngine === "text-davinci-001"
+                ? { left: "240px" }
+                : { left: "910px" }
+            }
+          >
             <motion.div className="aiEngine">
               <motion.label
                 for="ada"
@@ -172,7 +185,7 @@ const SubmitForm = ({
                 />
               </motion.label>
             </div>
-          </div>
+          </motion.div>
         </fieldset>
         <label htmlFor="aiPrompt">Enter a command for GPT-3!</label>
         <textarea

@@ -1,4 +1,5 @@
 #submitToAi {
+  position: relative;
   overflow: hidden;
 }
 
@@ -19,7 +20,8 @@ label[for="aiPrompt"] {
 
 .aiEngineSwiper {
   display: flex;
-  width: 100vw;
+  position: relative;
+  width: 2000px;
   overflow-x: scroll;
   overflow-y: hidden;
   padding-top: 32px;
