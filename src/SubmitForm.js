@@ -1,6 +1,7 @@
 import "./SubmitForm.css";
 import submitOpenAi from "./submitOpenAi";
 import Button from "./Button";
+import { motion, transform } from "framer-motion";
 
 const SubmitForm = ({
   aiEngine,
@@ -31,54 +32,145 @@ const SubmitForm = ({
         >
           <legend>Select an Ai Engine:</legend>
           <div className="aiEngineSwiper">
-            <div className="aiEngine">
-              <label for="ada">
+            <motion.div className="aiEngine">
+              <motion.label
+                for="ada"
+                animate={
+                  aiEngine === "text-ada-001"
+                    ? {
+                        transform: "scale(1.1)",
+                        opacity: "1",
+                        color: "#E1F12E",
+                      }
+                    : {
+                        transform: "scale(1)",
+                        opacity: "0.3",
+                        color: "#EEEEEE",
+                      }
+                }
+              >
                 Ada
                 <input
                   type="radio"
                   id="ada"
                   name="aiEngineChoice"
                   value="text-ada-001"
-                  defaultChecked
+                  hidden
                 />
-                <div className="aiEngineImg" />
-              </label>
-            </div>
+                <motion.div
+                  className="aiEngineImg"
+                  animate={
+                    aiEngine === "text-ada-001"
+                      ? { transform: "scale(1.3)", opacity: "1" }
+                      : { transform: "scale(1)", opacity: "0.3" }
+                  }
+                />
+              </motion.label>
+            </motion.div>
             <div className="aiEngine">
-              <label for="babbage">
+              <motion.label
+                for="babbage"
+                animate={
+                  aiEngine === "text-babbage-001"
+                    ? {
+                        transform: "scale(1.1)",
+                        opacity: "1",
+                        color: "#E1F12E",
+                      }
+                    : {
+                        transform: "scale(1)",
+                        opacity: "0.3",
+                        color: "#EEEEEE",
+                      }
+                }
+              >
                 Babbage
                 <input
                   type="radio"
                   id="babbage"
                   name="aiEngineChoice"
                   value="text-babbage-001"
+                  hidden
                 />
-                <div className="aiEngineImg" />
-              </label>
+                <motion.div
+                  className="aiEngineImg"
+                  animate={
+                    aiEngine === "text-babbage-001"
+                      ? { transform: "scale(1.3)", opacity: "1" }
+                      : { transform: "scale(1)", opacity: "0.3" }
+                  }
+                />
+              </motion.label>
             </div>
             <div className="aiEngine">
-              <label for="curie">
+              <motion.label
+                for="curie"
+                animate={
+                  aiEngine === "text-curie-001"
+                    ? {
+                        transform: "scale(1.1)",
+                        opacity: "1",
+                        color: "#E1F12E",
+                      }
+                    : {
+                        transform: "scale(1)",
+                        opacity: "0.3",
+                        color: "#EEEEEE",
+                      }
+                }
+              >
                 Curie
                 <input
                   type="radio"
                   id="curie"
                   name="aiEngineChoice"
                   value="text-curie-001"
+                  hidden
                 />
-                <div className="aiEngineImg" />
-              </label>
+                <motion.div
+                  className="aiEngineImg"
+                  animate={
+                    aiEngine === "text-curie-001"
+                      ? { transform: "scale(1.3)", opacity: "1" }
+                      : { transform: "scale(1)", opacity: "0.3" }
+                  }
+                />
+              </motion.label>
             </div>
             <div className="aiEngine">
-              <label for="davinci">
+              <motion.label
+                for="davinci"
+                animate={
+                  aiEngine === "text-davinci-001"
+                    ? {
+                        transform: "scale(1.1)",
+                        opacity: "1",
+                        color: "#E1F12E",
+                      }
+                    : {
+                        transform: "scale(1)",
+                        opacity: "0.3",
+                        color: "#EEEEEE",
+                      }
+                }
+              >
                 DaVinci
                 <input
                   type="radio"
                   id="davinci"
                   name="aiEngineChoice"
                   value="text-davinci-001"
+                  hidden
                 />
-              </label>
-              <div className="aiEngineImg" />
+                <motion.div
+                  className="aiEngineImg"
+                  animate={
+                    aiEngine === "text-davinci-001"
+                      ? { transform: "scale(1.3)", opacity: "1" }
+                      : { transform: "scale(1)", opacity: "0.3" }
+                  }
+                />
+              </motion.label>
             </div>
           </div>
         </fieldset>

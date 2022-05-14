@@ -4,9 +4,6 @@ import "./App.css";
 import RespList from "./RespList";
 import SubmitForm from "./SubmitForm";
 
-// ✅ Trigger 'loading' state before response and clear after response is received
-// ✅ Check if response is 'ok' and throw error if not
-
 function App() {
   const [aiEngine, setAiEngine] = useState("text-ada-001");
   const [aiResp, setAiResp] = useState([]);

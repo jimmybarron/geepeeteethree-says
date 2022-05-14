@@ -20,8 +20,9 @@ label[for="aiPrompt"] {
 .aiEngineSwiper {
   display: flex;
   width: 100vw;
-  overflow: scroll;
-  padding-top: 16px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding-top: 32px;
 }
 
 .aiEngine {
@@ -39,7 +40,7 @@ label[for="aiPrompt"] {
   opacity: 0;
 }
 
-.aiEngine input[type="radio"]:checked {
+:checked {
   transform: scale(1.2);
 }
 
@@ -48,12 +49,13 @@ label[for="aiPrompt"] {
 }
 
 .aiEngineImg {
-  width: 100px;
+  width: 150px;
   height: 150px;
   background-image: url("./facePlaceholder.png");
   background-size: 150px 150px;
   background-position: center;
   background-origin: border-box;
-  padding-top: 40px;
+  background-repeat: no-repeat;
+  padding-top: 124px;
   margin: auto;
 }
