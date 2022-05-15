@@ -1,6 +1,5 @@
 #submitToAi {
   position: relative;
-  overflow: hidden;
 }
 
 #submitToAi legend {
@@ -18,13 +17,25 @@ label[for="aiPrompt"] {
   font-size: 16px;
 }
 
-.aiEngineSwiper {
-  display: flex;
+.aiEngineSwiperContain {
   position: relative;
-  width: 2000px;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  padding-top: 32px;
+  width: 100vw;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.aiEngineSwiperContain::-webkit-scrollbar {
+  display: none;
+}
+
+.aiEngineSwiper {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  display: flex;
+  justify-content: center;
+  padding: 32px 0;
 }
 
 .aiEngine {
