@@ -1,0 +1,36 @@
+.aiEngine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 16px;
+}
+
+.aiEngine label {
+  display: flex;
+  flex-direction: column;
+  font-size: 32px;
+}
+
+.aiEngine input[type="radio"] {
+  opacity: 0;
+}
+
+:checked {
+  transform: scale(1.2);
+}
+
+.aiEngineChoice label {
+  font-size: 32px;
+}
+
+.aiEngineImg {
+  width: 150px;
+  height: 150px;
+  background-image: url("./facePlaceholder.png");
+  background-size: 150px 150px;
+  background-position: center;
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  padding-top: 124px;
+  margin: auto;
+}
