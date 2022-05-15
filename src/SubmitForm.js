@@ -56,12 +56,12 @@ const SubmitForm = ({
                     animate={
                       aiEngine === "text-ada-001"
                         ? {
-                            transform: "scale(1.1)",
+                            scale: 1.1,
                             opacity: "1",
                             color: "#E1F12E",
                           }
                         : {
-                            transform: "scale(1)",
+                            scale: 1,
                             opacity: "0.3",
                             color: "#EEEEEE",
                           }
@@ -79,9 +79,14 @@ const SubmitForm = ({
                       className="aiEngineImg"
                       animate={
                         aiEngine === "text-ada-001"
-                          ? { transform: "scale(1.3)", opacity: "1" }
-                          : { transform: "scale(1)", opacity: "0.3" }
+                          ? { scale: [1, 1.3], opacity: "1" }
+                          : { scale: 1, opacity: "0.3" }
                       }
+                      transition={{
+                        duration: 0.5,
+                        repeat: Infinity,
+                        repeatType: "reverse",
+                      }}
                     />
                   </motion.label>
                 </motion.div>
