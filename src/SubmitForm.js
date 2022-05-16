@@ -2,8 +2,14 @@ import "./SubmitForm.css";
 import submitOpenAi from "./submitOpenAi";
 import Button from "./Button";
 import AiEngine from "./AiEngine";
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
+
+const placeholderArr = [
+  "You could ask for a joke...",
+  "Write part of a sentence, let GPT3 Complete it...",
+  "Ask for an excuse",
+];
 
 const SubmitForm = ({
   aiEngine,
@@ -14,6 +20,7 @@ const SubmitForm = ({
   setAiResp,
 }) => {
   const aiEngineSwiper = useRef();
+  const [placeholderCount, setPlaceholderCount] = useState(0);
   return (
     <section>
       <form
@@ -61,7 +68,7 @@ const SubmitForm = ({
         <label htmlFor="aiPrompt">Enter a command for GPT-3!</label>
         <textarea
           id="aiPrompt"
-          placeholder="You could ask for a joke..."
+          placeholder={placeholderArr[placeholderCount]}
           value={aiPrompt}
           onChange={(event) => {
             setAiPrompt(event.target.value);
@@ -81,7 +88,13 @@ const SubmitForm = ({
         ></textarea>
 
         <Button
-          onClick={(event) =>
+          onClick={(event) => {
+            setPlaceholderCount((prev) => {
+              if (prev === placeholderArr.length - 1) {
+                return 0;
+              }
+              return prev + 1;
+            });
             submitOpenAi(
               event,
               aiEngine,
@@ -89,8 +102,8 @@ const SubmitForm = ({
               setAiPrompt,
               aiResp,
               setAiResp
-            )
-          }
+            );
+          }}
         >
           SUBMIT TO AI
         </Button>
