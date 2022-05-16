@@ -12,33 +12,66 @@ const RespList = ({ aiResp }) => {
           textAlign: "left",
         }}
       >
-        <h3 style={{ fontSize: "20px", paddingBottom: "16px" }}>YOU WROTE</h3>
-        <p style={{ fontSize: "13px", paddingBottom: "16px" }}>
-          {element.aiPrompt}
-        </p>
+        <div style={{ display: "flex" }}>
+          <div
+            style={{
+              backgroundColor: "white",
+              paddingRight: "4px",
+              marginRight: "8px",
+            }}
+          ></div>
+
+          <div>
+            <h3 style={{ fontSize: "20px", paddingBottom: "16px" }}>
+              YOU WROTE
+            </h3>
+            <p style={{ fontSize: "13px" }}>{element.aiPrompt}</p>
+          </div>
+        </div>
+
         <div style={{ display: "flex", flexDirection: "row-reverse" }}>
           <div className="adaImg"></div>
         </div>
-        <h3
-          style={{
-            color: "#e1f12e",
-            fontSize: "20px",
-            textAlign: "right",
-            paddingBottom: "16px",
-          }}
-        >
-          {element.aiEngine === "text-ada-001"
-            ? "ADA"
-            : element.aiEngine === "text-babbage-001"
-            ? "BABBAGE"
-            : element.aiEngine === "text-curie-001"
-            ? "CURIE"
-            : "DAVINCI"}
-          &nbsp;REPLIED:
-        </h3>
-        <p style={{ fontSize: "13px", textAlign: "right", lineHeight: "21px" }}>
-          {element.aiResp}
-        </p>
+
+        <div style={{ display: "flex", flexDirection: "row-reverse" }}>
+          <div
+            style={{
+              backgroundColor: "#E1F12E",
+              paddingLeft: "4px",
+              marginLeft: "8px",
+            }}
+          ></div>
+          <div>
+            <h3
+              style={{
+                color: "#e1f12e",
+                fontSize: "20px",
+                textAlign: "right",
+                paddingBottom: "16px",
+              }}
+            >
+              {element.aiEngine === "text-ada-001"
+                ? "ADA"
+                : element.aiEngine === "text-babbage-001"
+                ? "BABBAGE"
+                : element.aiEngine === "text-curie-001"
+                ? "CURIE"
+                : "DAVINCI"}
+              &nbsp;REPLIED
+            </h3>
+
+            <p
+              style={{
+                fontSize: "13px",
+                textAlign: "right",
+                lineHeight: "21px",
+              }}
+            >
+              {element.aiResp}
+            </p>
+          </div>
+        </div>
+        <></>
       </div>
     );
   });
@@ -50,6 +83,7 @@ const RespList = ({ aiResp }) => {
         display: "flex",
         flexDirection: "column-reverse",
         width: "85vw",
+        maxWidth: "450px",
         margin: "64px auto",
       }}
     >
