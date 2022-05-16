@@ -27,7 +27,7 @@ const SubmitForm = ({
           event.preventDefault();
         }}
       >
-        <div style={{ overflowX: "hidden", width: "auto", height: "360px" }}>
+        <div className="aiEngineScroller">
           <div className="aiEngineSwiperContain">
             <fieldset
               form="submitToAi"

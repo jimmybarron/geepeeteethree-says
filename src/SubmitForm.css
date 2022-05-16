@@ -12,21 +12,29 @@ label[for="aiPrompt"] {
 }
 
 #aiPrompt {
-  width: 300px;
-  height: 50px;
+  width: 85vw;
+  height: 30vh;
+  max-width: 500px;
+  max-height: 100px;
   font-size: 16px;
+}
+
+.aiEngineScroller {
+  width: auto;
+  height: 360px;
+  overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.aiEngineScroller::-webkit-scrollbar {
+  display: none;
 }
 
 .aiEngineSwiperContain {
   position: relative;
   width: 100vw;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-.aiEngineSwiperContain::-webkit-scrollbar {
-  display: none;
+  height: 360px;
 }
 
 .aiEngineSwiper {
