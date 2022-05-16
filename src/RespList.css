@@ -4,5 +4,6 @@
   background-image: url("./facePlaceholder.png");
   background-size: 150px 150px;
   background-origin: border-box;
+  transform-origin: center;
   background-repeat: no-repeat;
 }

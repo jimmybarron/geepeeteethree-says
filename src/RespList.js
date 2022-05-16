@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import "./RespList.css";
 
 const RespList = ({ aiResp }) => {
@@ -8,46 +9,84 @@ const RespList = ({ aiResp }) => {
         key={index}
         className="aiResp"
         style={{
-          margin: "24px 8px 100px 8px",
+          margin: "24px 8px 200px 8px",
           textAlign: "left",
         }}
       >
         <div style={{ display: "flex" }}>
-          <div
+          <motion.div
+            initial={{ height: "0px" }}
+            animate={{ height: "auto" }}
             style={{
               backgroundColor: "white",
               paddingRight: "4px",
               marginRight: "8px",
             }}
-          ></div>
+          ></motion.div>
 
           <div>
-            <h3 style={{ fontSize: "20px", paddingBottom: "16px" }}>
+            <motion.h3
+              style={{
+                fontSize: "20px",
+                paddingBottom: "16px",
+              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                delay: 0.3,
+              }}
+            >
               YOU WROTE
-            </h3>
-            <p style={{ fontSize: "13px" }}>{element.aiPrompt}</p>
+            </motion.h3>
+            <motion.p
+              style={{ fontSize: "13px" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                delay: 0.5,
+              }}
+            >
+              {element.aiPrompt}
+            </motion.p>
           </div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "row-reverse" }}>
-          <div className="adaImg"></div>
+          <motion.div
+            className="adaImg"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{
+              delay: 1,
+            }}
+          ></motion.div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "row-reverse" }}>
-          <div
+          <motion.div
             style={{
               backgroundColor: "#E1F12E",
               paddingLeft: "4px",
               marginLeft: "8px",
             }}
-          ></div>
+            initial={{ height: "0px" }}
+            animate={{ height: "auto" }}
+            transition={{
+              delay: 1.5,
+            }}
+          ></motion.div>
           <div>
-            <h3
+            <motion.h3
               style={{
                 color: "#e1f12e",
                 fontSize: "20px",
                 textAlign: "right",
                 paddingBottom: "16px",
+              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                delay: 1.8,
               }}
             >
               {element.aiEngine === "text-ada-001"
@@ -58,17 +97,22 @@ const RespList = ({ aiResp }) => {
                 ? "CURIE"
                 : "DAVINCI"}
               &nbsp;REPLIED
-            </h3>
+            </motion.h3>
 
-            <p
+            <motion.p
               style={{
                 fontSize: "13px",
                 textAlign: "right",
                 lineHeight: "21px",
               }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                delay: 2,
+              }}
             >
               {element.aiResp}
-            </p>
+            </motion.p>
           </div>
         </div>
         <></>
