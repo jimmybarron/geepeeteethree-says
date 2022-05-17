@@ -6,9 +6,9 @@ import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 
 const placeholderArr = [
-  "You could ask for a joke...",
   "Write part of a sentence, let GPT3 Complete it...",
-  "Ask for an excuse",
+  "Ask it to write a good/bad review for a type of restaurant",
+  "Tell me a joke about horse with no tail...",
 ];
 
 const SubmitForm = ({
