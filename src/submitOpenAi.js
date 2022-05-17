@@ -4,8 +4,11 @@ const submitOpenAi = async (
   aiPrompt,
   setAiPrompt,
   aiResp,
-  setAiResp
+  setAiResp,
+  setLoading
 ) => {
+  setAiPrompt("");
+  setLoading(true);
   event.preventDefault();
   const data = {
     prompt: aiPrompt,
@@ -28,6 +31,7 @@ const submitOpenAi = async (
   );
 
   const respText = await resp.json();
+  setLoading(false);
   setAiResp((prevState) => {
     return [
       ...prevState,
@@ -38,7 +42,6 @@ const submitOpenAi = async (
       },
     ];
   });
-  setAiPrompt("");
 };
 
 export default submitOpenAi;

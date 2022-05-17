@@ -1,5 +1,15 @@
+import "./SubmitForm.css";
 import submitOpenAi from "./submitOpenAi";
 import Button from "./Button";
+import AiEngine from "./AiEngine";
+import { useState, useRef } from "react";
+import { motion } from "framer-motion";
+
+const placeholderArr = [
+  "Write part of a sentence, let GPT3 Complete it...",
+  "Ask it to write a good/bad review for a type of restaurant",
+  "Tell me a joke about horse with no tail...",
+];
 
 const SubmitForm = ({
   aiEngine,
@@ -8,7 +18,10 @@ const SubmitForm = ({
   setAiPrompt,
   aiResp,
   setAiResp,
+  setLoading,
 }) => {
+  const aiEngineSwiper = useRef();
+  const [placeholderCount, setPlaceholderCount] = useState(0);
   return (
     <section>
       <form
@@ -22,10 +35,41 @@ const SubmitForm = ({
           event.preventDefault();
         }}
       >
-        <label htmlFor="aiPrompt">Ask the computer a question:</label>
+        <div className="aiEngineScroller">
+          <div className="aiEngineSwiperContain">
+            <fieldset
+              form="submitToAi"
+              onChange={(event) => {
+                setAiEngine(event.target.value);
+              }}
+            >
+              <legend>Select an Ai Engine:</legend>
+              <motion.div
+                drag="x"
+                dragConstraints={{ left: -750, right: -90 }}
+                className="aiEngineSwiper"
+                ref={aiEngineSwiper}
+                animate={
+                  aiEngine === "text-ada-001"
+                    ? { x: "-90px" }
+                    : aiEngine === "text-babbage-001"
+                    ? { x: "-310px" }
+                    : aiEngine === "text-curie-001"
+                    ? { x: "-530px" }
+                    : aiEngine === "text-davinci-001"
+                    ? { x: "-750px" }
+                    : { x: "-90px" }
+                }
+              >
+                <AiEngine aiEngine={aiEngine} />
+              </motion.div>
+            </fieldset>
+          </div>
+        </div>
+        <label htmlFor="aiPrompt">Enter a command for GPT-3!</label>
         <textarea
           id="aiPrompt"
-          style={{ width: "70vw", height: "10vh", fontSize: "24px" }}
+          placeholder={placeholderArr[placeholderCount]}
           value={aiPrompt}
           onChange={(event) => {
             setAiPrompt(event.target.value);
@@ -38,69 +82,33 @@ const SubmitForm = ({
                 aiPrompt,
                 setAiPrompt,
                 aiResp,
-                setAiResp
+                setAiResp,
+                setLoading
               );
             }
           }}
         ></textarea>
-        <fieldset
-          form="submitToAi"
-          onChange={(event) => {
-            setAiEngine(event.target.value);
-          }}
-        >
-          <legend>Select an Ai Engine:</legend>
-          <div>
-            <input
-              type="radio"
-              id="ada"
-              name="aiEngineChoice"
-              value="text-ada-001"
-              defaultChecked
-            />
-            <label for="ada">Ada</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="babbage"
-              name="aiEngineChoice"
-              value="text-babbage-001"
-            />
-            <label for="babbage">Babbage</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="curie"
-              name="aiEngineChoice"
-              value="text-curie-001"
-            />
-            <label for="curie">Curie</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="davinci"
-              name="aiEngineChoice"
-              value="text-davinci-001"
-            />
-            <label for="davinci">DaVinci</label>
-          </div>
-        </fieldset>
+
         <Button
-          onClick={(event) =>
+          onClick={(event) => {
+            setPlaceholderCount((prev) => {
+              if (prev === placeholderArr.length - 1) {
+                return 0;
+              }
+              return prev + 1;
+            });
             submitOpenAi(
               event,
               aiEngine,
               aiPrompt,
               setAiPrompt,
               aiResp,
-              setAiResp
-            )
-          }
+              setAiResp,
+              setLoading
+            );
+          }}
         >
-          Submit to Ai
+          SUBMIT TO AI
         </Button>
       </form>
     </section>

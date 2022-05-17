@@ -1,0 +1,49 @@
+#submitToAi {
+  position: relative;
+}
+
+#submitToAi legend {
+  opacity: 0;
+  height: 0;
+}
+
+label[for="aiPrompt"] {
+  opacity: 0;
+}
+
+#aiPrompt {
+  width: 85vw;
+  height: 30vh;
+  max-width: 500px;
+  max-height: 100px;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 16px;
+}
+
+.aiEngineScroller {
+  width: auto;
+  height: 360px;
+  overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.aiEngineScroller::-webkit-scrollbar {
+  display: none;
+}
+
+.aiEngineSwiperContain {
+  position: relative;
+  width: 100vw;
+  height: 360px;
+}
+
+.aiEngineSwiper {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  display: flex;
+  justify-content: center;
+  padding: 32px 0;
+}

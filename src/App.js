@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
+import "./reset.css";
 import "./App.css";
 import RespList from "./RespList";
 import SubmitForm from "./SubmitForm";
-
-// ✅ Trigger 'loading' state before response and clear after response is received
-// ✅ Check if response is 'ok' and throw error if not
 
 function App() {
   const [aiEngine, setAiEngine] = useState("text-ada-001");
   const [aiResp, setAiResp] = useState([]);
   const [aiPrompt, setAiPrompt] = useState();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     console.log(aiEngine);
@@ -18,9 +17,30 @@ function App() {
   return (
     <>
       <header>
-        <h1 style={{ textAlign: "center" }}>Open AI</h1>
+        <h1
+          style={{
+            color: "#eeeeee",
+            textAlign: "center",
+          }}
+        >
+          Ask GPT-3
+        </h1>
+        <h1
+          style={{
+            color: "#eeeeee",
+            textAlign: "center",
+            position: "absolute",
+            marginLeft: "auto",
+            marginRight: "auto",
+            left: 0,
+            right: 0,
+            top: "140px",
+          }}
+        >
+          ANYTHING
+        </h1>
       </header>
-      <main id="main" className="App">
+      <main id="main">
         <SubmitForm
           aiEngine={aiEngine}
           setAiEngine={setAiEngine}
@@ -28,8 +48,9 @@ function App() {
           setAiPrompt={setAiPrompt}
           aiResp={aiResp}
           setAiResp={setAiResp}
+          setLoading={setLoading}
         />
-        <RespList aiResp={aiResp} />
+        <RespList aiResp={aiResp} loading={loading} />
       </main>
     </>
   );
