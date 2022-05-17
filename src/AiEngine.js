@@ -25,7 +25,7 @@ const AiEngine = ({ aiEngine }) => {
             value={`text-${aiEngineName}-001`}
           />
           <motion.div
-            className="aiEngineImg"
+            className={`${aiEngineName}Img`}
             variants={variants}
             animate={
               aiEngine === `text-${aiEngineName}-001`

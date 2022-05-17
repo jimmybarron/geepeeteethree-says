@@ -23,14 +23,62 @@
   font-size: 32px;
 }
 
-.aiEngineImg {
+.adaImg {
   width: 150px;
   height: 150px;
-  background-image: url("./facePlaceholder.png");
+  background-image: url("./ada.png");
   background-size: 150px 150px;
   background-position: center;
   background-origin: border-box;
   background-repeat: no-repeat;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  padding-top: 124px;
+  margin: auto;
+}
+
+.babbageImg {
+  width: 150px;
+  height: 150px;
+  background-image: url("./babbage.png");
+  background-size: 150px 150px;
+  background-position: center;
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  padding-top: 124px;
+  margin: auto;
+}
+
+.curieImg {
+  width: 150px;
+  height: 150px;
+  background-image: url("./curie.png");
+  background-size: 150px 150px;
+  background-position: center;
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  padding-top: 124px;
+  margin: auto;
+}
+
+.davinciImg {
+  width: 150px;
+  height: 150px;
+  background-image: url("./davinci.png");
+  background-size: 150px 150px;
+  background-position: center;
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
   padding-top: 124px;
   margin: auto;
 }

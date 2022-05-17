@@ -19,7 +19,6 @@ function App() {
       <header>
         <h1
           style={{
-            backgroundColor: "#000000",
             color: "#eeeeee",
             textAlign: "center",
           }}
@@ -28,7 +27,6 @@ function App() {
         </h1>
         <h1
           style={{
-            backgroundColor: "#000000",
             color: "#eeeeee",
             textAlign: "center",
             position: "absolute",

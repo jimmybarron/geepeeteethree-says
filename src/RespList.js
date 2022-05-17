@@ -4,6 +4,7 @@ import "./RespList.css";
 const RespList = ({ aiResp, loading }) => {
   // Creates list entries
   const newList = aiResp.map((element, index) => {
+    console.log(element);
     return (
       <motion.div
         key={index}
@@ -58,7 +59,7 @@ const RespList = ({ aiResp, loading }) => {
 
         <div style={{ display: "flex", flexDirection: "row-reverse" }}>
           <motion.div
-            className="adaImg"
+            className={`aiEngineImg ${element.aiEngine}Img`}
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{

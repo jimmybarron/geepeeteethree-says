@@ -1,9 +1,28 @@
-.adaImg {
-  width: 150px;
-  height: 150px;
-  background-image: url("./facePlaceholder.png");
+.aiEngineImg {
+  width: 100px;
+  height: 100px;
   background-size: 150px 150px;
+  background-position: center;
   background-origin: border-box;
-  transform-origin: center;
   background-repeat: no-repeat;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  padding-top: 124px;
+}
+
+.text-ada-001Img {
+  background-image: url("./ada.png");
+}
+
+.text-babbage-001Img {
+  background-image: url("./babbage.png");
+}
+
+.text-curie-001Img {
+  background-image: url("./curie.png");
+}
+
+.text-davinci-001Img {
+  background-image: url("./davinci.png");
 }
