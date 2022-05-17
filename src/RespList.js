@@ -1,26 +1,31 @@
 import { motion } from "framer-motion";
 import "./RespList.css";
 
-const RespList = ({ aiResp }) => {
+const RespList = ({ aiResp, loading }) => {
   // Creates list entries
   const newList = aiResp.map((element, index) => {
     return (
-      <div
+      <motion.div
         key={index}
         className="aiResp"
         style={{
           margin: "24px 8px 200px 8px",
           textAlign: "left",
         }}
+        initial={{ height: "0px" }}
+        animate={{ height: "auto" }}
       >
         <div style={{ display: "flex" }}>
           <motion.div
             initial={{ height: "0px" }}
-            animate={{ height: "auto" }}
             style={{
               backgroundColor: "white",
               paddingRight: "4px",
               marginRight: "8px",
+            }}
+            animate={{ height: "auto" }}
+            transition={{
+              delay: 0.2,
             }}
           ></motion.div>
 
@@ -116,7 +121,7 @@ const RespList = ({ aiResp }) => {
           </div>
         </div>
         <></>
-      </div>
+      </motion.div>
     );
   });
 
@@ -132,6 +137,17 @@ const RespList = ({ aiResp }) => {
       }}
     >
       {newList}
+      <motion.div
+        style={{ display: loading === true ? "block" : "none" }}
+        animate={{ opacity: [1, 0] }}
+        transition={{
+          duration: 0.5,
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
+      >
+        Loading...
+      </motion.div>
     </section>
   );
 };

@@ -8,6 +8,7 @@ function App() {
   const [aiEngine, setAiEngine] = useState("text-ada-001");
   const [aiResp, setAiResp] = useState([]);
   const [aiPrompt, setAiPrompt] = useState();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     console.log(aiEngine);
@@ -49,8 +50,9 @@ function App() {
           setAiPrompt={setAiPrompt}
           aiResp={aiResp}
           setAiResp={setAiResp}
+          setLoading={setLoading}
         />
-        <RespList aiResp={aiResp} />
+        <RespList aiResp={aiResp} loading={loading} />
       </main>
     </>
   );

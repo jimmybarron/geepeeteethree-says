@@ -18,6 +18,7 @@ const SubmitForm = ({
   setAiPrompt,
   aiResp,
   setAiResp,
+  setLoading,
 }) => {
   const aiEngineSwiper = useRef();
   const [placeholderCount, setPlaceholderCount] = useState(0);
@@ -81,7 +82,8 @@ const SubmitForm = ({
                 aiPrompt,
                 setAiPrompt,
                 aiResp,
-                setAiResp
+                setAiResp,
+                setLoading
               );
             }
           }}
@@ -101,7 +103,8 @@ const SubmitForm = ({
               aiPrompt,
               setAiPrompt,
               aiResp,
-              setAiResp
+              setAiResp,
+              setLoading
             );
           }}
         >
