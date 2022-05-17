@@ -1,6 +1,8 @@
+![logo](https://raw.githubusercontent.com/jimmybarron/gpt3says/master/public/gpt3SaysLogo.png)
+
 # GPT3 Says
 
-This project can be viewed live [here](https://gpt3says.netlify.app/)
+## This project can be viewed live [here](https://gpt3says.netlify.app/)
 
 This app uses [OpenAi's completion API](https://beta.openai.com/docs/guides/completion/introduction) to take whatever the user submits to generate a response. There are 4 AiEngines available and the app lets the user select which they want to use, and shows the response history in a quasi text message layout.
 
