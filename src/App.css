@@ -3,6 +3,7 @@
 :root {
   height: 100%;
   width: 100%;
+  overflow-x: hidden;
   background-color: #1e1e1e;
   color: #eeeeee;
   font-family: "Press Start 2P", sans-serif;

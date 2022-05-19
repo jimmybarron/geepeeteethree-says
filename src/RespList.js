@@ -45,7 +45,7 @@ const RespList = ({ aiResp, loading }) => {
               YOU WROTE
             </motion.h3>
             <motion.p
-              style={{ fontSize: "13px" }}
+              style={{ fontSize: "13px", lineHeight: "21px" }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{
