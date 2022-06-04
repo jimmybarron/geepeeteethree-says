@@ -6,7 +6,7 @@ import SubmitForm from "./SubmitForm";
 
 function App() {
   const [aiEngine, setAiEngine] = useState("text-ada-001");
-  const [aiResp, setAiResp] = useState([]);
+  const [aiResponse, setAiResponse] = useState([]);
   const [aiPrompt, setAiPrompt] = useState();
   const [loading, setLoading] = useState(false);
 
@@ -46,11 +46,11 @@ function App() {
           setAiEngine={setAiEngine}
           aiPrompt={aiPrompt}
           setAiPrompt={setAiPrompt}
-          aiResp={aiResp}
-          setAiResp={setAiResp}
+          aiResponse={aiResponse}
+          setAiResponse={setAiResponse}
           setLoading={setLoading}
         />
-        <RespList aiResp={aiResp} loading={loading} />
+        <RespList aiResponse={aiResponse} loading={loading} />
       </main>
     </>
   );

@@ -16,8 +16,8 @@ const SubmitForm = ({
   setAiEngine,
   aiPrompt,
   setAiPrompt,
-  aiResp,
-  setAiResp,
+  aiResponse,
+  setAiResponse,
   setLoading,
 }) => {
   const aiEngineSwiper = useRef();
@@ -81,8 +81,8 @@ const SubmitForm = ({
                 aiEngine,
                 aiPrompt,
                 setAiPrompt,
-                aiResp,
-                setAiResp,
+                aiResponse,
+                setAiResponse,
                 setLoading
               );
             }
@@ -102,8 +102,8 @@ const SubmitForm = ({
               aiEngine,
               aiPrompt,
               setAiPrompt,
-              aiResp,
-              setAiResp,
+              aiResponse,
+              setAiResponse,
               setLoading
             );
           }}

@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
 import "./RespList.css";
 
-const RespList = ({ aiResp, loading }) => {
+const RespList = ({ aiResponse, loading }) => {
   // Creates list entries
-  const newList = aiResp.map((element, index) => {
+  const newList = aiResponse.map((element, index) => {
     console.log(element);
     return (
       <motion.div
         key={index}
-        className="aiResp"
+        className="aiResponse"
         style={{
           margin: "24px 8px 200px 8px",
           textAlign: "left",
@@ -117,7 +117,7 @@ const RespList = ({ aiResp, loading }) => {
                 delay: 2,
               }}
             >
-              {element.aiResp}
+              {element.aiResponse}
             </motion.p>
           </div>
         </div>
@@ -128,7 +128,7 @@ const RespList = ({ aiResp, loading }) => {
 
   return (
     <section
-      className="aiRespList"
+      className="aiResponseList"
       style={{
         display: "flex",
         flexDirection: "column-reverse",

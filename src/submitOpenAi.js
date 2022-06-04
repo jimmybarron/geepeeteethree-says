@@ -3,8 +3,8 @@ const submitOpenAi = async (
   aiEngine,
   aiPrompt,
   setAiPrompt,
-  aiResp,
-  setAiResp,
+  aiResponse,
+  setAiResponse,
   setLoading
 ) => {
   setAiPrompt("");
@@ -32,13 +32,13 @@ const submitOpenAi = async (
 
   const respText = await resp.json();
   setLoading(false);
-  setAiResp((prevState) => {
+  setAiResponse((prevState) => {
     return [
       ...prevState,
       {
         aiEngine: aiEngine,
         aiPrompt: aiPrompt,
-        aiResp: respText.choices[0].text,
+        aiResponse: respText.choices[0].text,
       },
     ];
   });
